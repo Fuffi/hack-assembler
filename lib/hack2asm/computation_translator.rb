@@ -9,7 +9,7 @@ module Hack2asm
 
     private
     @@translation_table = {
-      'D' => '0001100'
+      '0' => '0101010'
     }
   end
 end

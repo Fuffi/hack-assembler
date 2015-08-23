@@ -10,7 +10,7 @@ module Hack2asm
     private
     @@translation_table = {
       nil => '000',
-      'JNE' => '101'
+      'JMP' => '111'
     }
   end
 end
