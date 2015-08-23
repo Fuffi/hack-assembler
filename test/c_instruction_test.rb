@@ -14,4 +14,22 @@ class CInstructionTest < Minitest::Test
 
     assert_equal '1110000000000111', bytecode
   end
+
+  def test_that_destination_translator_writes_on_output
+    bytecode = nil
+    DestinationTranslator.stub(:translate, '111') do
+      bytecode = CInstruction.translate('0;JMP')
+    end
+
+    assert_equal '1110101010111111', bytecode
+  end
+
+  def test_that_jump_translator_writes_on_output
+    bytecode = nil
+    JumpTranslator.stub(:translate, '000') do
+      bytecode = CInstruction.translate('0;JMP')
+    end
+
+    assert_equal '1110101010000000', bytecode
+  end
 end
