@@ -6,6 +6,10 @@ class CInstructionTest < Minitest::Test
     assert_equal '1110101010000111', bytecode
   end
 
+  def test_that_bad_instruction_raises_error
+    assert_raises(ParserError) { CInstruction.translate(';JMP') }
+  end
+
   def test_that_computation_translator_writes_on_output
     bytecode = nil
     ComputationTranslator.stub(:translate, '0000000') do
