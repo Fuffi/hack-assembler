@@ -6,6 +6,11 @@ class CInstructionTest < Minitest::Test
     assert_equal '1110101010000111', bytecode
   end
 
+  def test_translation_of_assignment
+    bytecode = CInstruction.translate('A=M+1')
+    assert_equal '1111110111100000', bytecode
+  end
+
   def test_that_bad_instruction_raises_error
     assert_raises(ParserError) { CInstruction.translate(';JMP') }
   end
