@@ -1,7 +1,7 @@
 module Hack2asm
   module AInstruction
-    def self.translate(hack_instruction)
-      matched = /@([0-9]+)/.match(hack_instruction)
+    def self.translate(instruction)
+      matched = /@([0-9]+)/.match(instruction)
       raise ParserError if matched.nil?
 
       value = matched[1].to_i
