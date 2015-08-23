@@ -6,7 +6,7 @@ module Hack2asm
         a_or_m_register = '1'
       end
 
-      generic_computation = computation.gsub(/(A|M)/, 'X')
+      generic_computation = computation.gsub(/X/, '$').gsub(/(A|M)/, 'X')
 
       operation_bytecode = @@translation_table[generic_computation]
       raise ParserError if operation_bytecode.nil?
@@ -19,6 +19,8 @@ module Hack2asm
     private
     @@translation_table = {
       '0' => '101010',
+      '1' => '111111',
+      '-1' => '111010',
       'X' => '110000'
     }
   end
