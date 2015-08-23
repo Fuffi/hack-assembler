@@ -20,4 +20,22 @@ class ComputationTranslatorTest < Minitest::Test
   def test_that_it_converts_minus_one_constant
     assert_equal '0111010', ComputationTranslator.translate('-1')
   end
+
+  def test_that_it_converts_d_register
+    assert_equal '0001100', ComputationTranslator.translate('D')
+  end
+
+  def test_that_it_converts_not_d_register
+    assert_equal '0001101', ComputationTranslator.translate('!D')
+  end
+
+  def test_that_it_converts_not_a_register
+    assert_equal '0110001', ComputationTranslator.translate('!A')
+  end
+
+  def test_that_it_converts_not_m_register
+    assert_equal '1110001', ComputationTranslator.translate('!M')
+  end
+
+
 end
