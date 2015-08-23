@@ -88,4 +88,28 @@ class ComputationTranslatorTest < Minitest::Test
   def test_that_it_converts_d_register_minus_m_register
     assert_equal '1010011', ComputationTranslator.translate('D-M')
   end
+
+  def test_that_it_converts_a_register_minus_d_register
+    assert_equal '0000111', ComputationTranslator.translate('A-D')
+  end
+
+  def test_that_it_converts_m_register_minus_d_register
+    assert_equal '1000111', ComputationTranslator.translate('M-D')
+  end
+
+  def test_that_it_converts_d_register_and_a_register
+    assert_equal '0000000', ComputationTranslator.translate('D&A')
+  end
+
+  def test_that_it_converts_d_register_and_m_register
+    assert_equal '1000000', ComputationTranslator.translate('D&M')
+  end
+
+  def test_that_it_converts_d_register_or_a_register
+    assert_equal '0010101', ComputationTranslator.translate('D|A')
+  end
+
+  def test_that_it_converts_d_register_or_m_register
+    assert_equal '1010101', ComputationTranslator.translate('D|M')
+  end
 end
