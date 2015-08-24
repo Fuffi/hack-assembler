@@ -1,2 +1,4 @@
 #!/usr/bin/evn ruby
-puts 'Test'
+require_relative '../lib/hack2asm'
+
+Hack2asm.translate_file
