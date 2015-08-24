@@ -1,4 +1,17 @@
 #!/usr/bin/evn ruby
 require_relative '../lib/hack_assembler'
 
-HackAssembler.translate_file
+input_file = ARGV[0]
+output_file = ARGV[1]
+
+if input_file.nil? || output_file.nil?
+  puts "Use the following format: hack_assembler <input_file.asm> <output_file.hack>"
+  exit -1
+end
+
+unless File.file?(input_file)
+  puts "The file #{input_file} doesn't exists"
+  exit -1
+end
+
+HackAssembler.translate_file(input_file, output_file)

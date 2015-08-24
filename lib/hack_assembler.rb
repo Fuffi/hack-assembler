@@ -8,7 +8,7 @@ require_relative 'hack_assembler/c_instruction'
 require_relative 'hack_assembler/assembler'
 
 module HackAssembler
-  def self.translate_file(input_file: 'PongL.asm', output_file: 'out.hack')
+  def self.translate_file(input_file, output_file)
     source_file = File.open(input_file)
     source_code = source_file.read
 
