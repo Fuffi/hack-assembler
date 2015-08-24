@@ -8,7 +8,7 @@ class AssemblerTest < Minitest::Test
   end
 
   def test_ignores_empty_lines
-    source_code = "\n@4\n"
+    source_code = "\n@4\n\n"
     bytecode = Assembler.translate(source_code)
     assert_equal "0000000000000100\n", bytecode
   end
