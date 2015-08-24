@@ -7,10 +7,10 @@ module Hack2asm
 
       source_code_extract.each_line do |line|
         next if line.start_with? '//'
-
+        
         clean_line = line.strip
 
-        instruction = line.start_with?('@') ? AInstruction : CInstruction
+        instruction = clean_line.start_with?('@') ? AInstruction : CInstruction
 
         machine_code << instruction.translate(clean_line) << "\n"
       end
