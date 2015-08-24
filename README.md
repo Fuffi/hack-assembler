@@ -1,14 +1,14 @@
 [![Build Status](https://travis-ci.org/Fuffi/hack2asm.svg?branch=master)](https://travis-ci.org/Fuffi/hack2asm)
 
-# Hack2asm
+# Hack Assembler
 
-TODO: Write a gem description
+Converts assembly code for the Hack machine built during the nand2tetris exercises.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'hack2asm'
+    gem 'hack-assembler'
 
 And then execute:
 
@@ -16,11 +16,12 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install hack2asm
+    $ gem install hack-assembler
 
 ## Usage
 
-TODO: Write usage instructions here
+After installing the Gem you can run this command from your terminal:
+    hack-assembler <input-file.asm> <output-file.hack>
 
 ## Contributing
 
