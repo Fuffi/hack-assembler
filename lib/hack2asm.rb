@@ -5,20 +5,17 @@ require_relative 'hack2asm/computation_translator'
 require_relative 'hack2asm/destination_translator'
 require_relative 'hack2asm/jump_translator'
 require_relative 'hack2asm/c_instruction'
+require_relative 'hack2asm/assembler'
 
 module Hack2asm
-  def self.translate_file(input_file: 'PongL.asm', output_file: 'out.asm')
+  def self.translate_file(input_file: 'PongL.asm', output_file: 'out.hack')
     source_file = File.open(input_file)
     source_code = source_file.read
     source_code = source_code.gsub(/^[\s]*$\n/, '')
 
-    source_code.each_line do |line|
-      next if line.start_with?('//')
+    machine_code = Assembler.translate(source_code)
 
-      instruction = line.start_with?('@') ? AInstruction : CInstruction
-
-      puts instruction.translate(line.strip)
-    end
+    File.open(output_file, 'w') { |file| file.write(machine_code); file.close }
 
     source_file.close
   end
