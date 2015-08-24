@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Fuffi/hack2asm.svg?branch=master)](https://travis-ci.org/Fuffi/hack2asm)
+
 # Hack2asm
 
 TODO: Write a gem description
