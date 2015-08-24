@@ -21,6 +21,7 @@ Or install it yourself as:
 ## Usage
 
 After installing the Gem you can run this command from your terminal:
+
     hack_assembler <input-file.asm> <output-file.hack>
 
 ## Contributing
