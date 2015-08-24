@@ -1,4 +1,4 @@
-module Hack2asm
+module HackAssembler
   module AInstruction
     def self.translate(instruction)
       matched = /@([0-9]+)/.match(instruction)

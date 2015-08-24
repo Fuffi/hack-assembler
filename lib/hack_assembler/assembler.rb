@@ -1,4 +1,4 @@
-module Hack2asm
+module HackAssembler
   module Assembler
     def self.translate(source_code)
       machine_code = ''

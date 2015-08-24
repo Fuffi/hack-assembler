@@ -1,4 +1,0 @@
-#!/usr/bin/evn ruby
-require_relative '../lib/hack2asm'
-
-Hack2asm.translate_file

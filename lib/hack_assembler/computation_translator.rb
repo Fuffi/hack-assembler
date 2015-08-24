@@ -1,4 +1,4 @@
-module Hack2asm
+module HackAssembler
   module ComputationTranslator
     def self.translate(computation)
       a_or_m_register = '0'

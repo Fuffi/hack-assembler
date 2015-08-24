@@ -1,4 +1,4 @@
-module Hack2asm
+module HackAssembler
   module CInstruction
     def self.translate(instruction)
       matched = /((.+)=)?([^;]+)(;([A-Z]+))?/.match(instruction)

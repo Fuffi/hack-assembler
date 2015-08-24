@@ -1,4 +1,4 @@
-module Hack2asm
+module HackAssembler
   module DestinationTranslator
     def self.translate(destination)
       bytecode = @@translation_table[destination]

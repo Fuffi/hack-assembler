@@ -1,4 +1,4 @@
-module Hack2asm
+module HackAssembler
   class ParserError < Exception
   end
 end

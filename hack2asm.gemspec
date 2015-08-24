@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'hack2asm/version'
+require 'hack_assembler/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "hack2asm"
-  spec.version       = Hack2asm::VERSION
+  spec.name          = "hack_assembler"
+  spec.version       = HackAssembler::VERSION
   spec.authors       = ["Federico Rebora"]
   spec.email         = ["ufinii@gmail.com"]
   spec.description   = %q{Assembler that takes .hack code and converts it to Hack machine ASM}
@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
-  spec.executables   << 'hack2asm'
+  spec.executables   << 'hack_assembler'
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
