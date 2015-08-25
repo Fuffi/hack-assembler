@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Fuffi/hack2asm.svg?branch=master)](https://travis-ci.org/Fuffi/hack2asm)
+[![Build Status](https://travis-ci.org/Fuffi/hack-assembler.svg?branch=master)](https://travis-ci.org/Fuffi/hack-assembler)
 
 # Hack Assembler
 
