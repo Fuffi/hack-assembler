@@ -3,11 +3,9 @@ module HackAssembler
     def self.translate(source_code)
       machine_code = ''
 
-      source_code_extract = source_code.gsub(/^[\s]*$\n/, '')
+      source_code.each_line do |line|
+        next if is_empty_line?(line) || is_comment_line?(line)
 
-      source_code_extract.each_line do |line|
-        next if line.start_with? '//'
-        
         clean_line = line.strip
 
         instruction = clean_line.start_with?('@') ? AInstruction : CInstruction
@@ -16,6 +14,15 @@ module HackAssembler
       end
 
       machine_code
+    end
+
+    private
+    def self.is_empty_line?(line)
+      line =~ /^[\s]*$\n/
+    end
+
+    def self.is_comment_line?(line)
+      line.start_with? '//'
     end
   end
 end
