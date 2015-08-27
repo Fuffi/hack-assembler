@@ -46,7 +46,7 @@ module HackAssembler
       machine_code = ''
 
       source_code.each_line do |line|
-        next if is_empty_line?(line) || is_comment_line?(line)
+        next if is_empty_line?(line) || is_comment_line?(line) || is_label_line?(line)
 
         clean_line = line.strip
 
@@ -65,6 +65,10 @@ module HackAssembler
 
     def self.is_comment_line?(line)
       line.start_with? '//'
+    end
+
+    def self.is_label_line?(line)
+      line =~ /\([A-Z_]+\)/
     end
   end
 end
