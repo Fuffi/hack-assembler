@@ -3,16 +3,20 @@ module HackAssembler
     def self.get_address(symbol)
       address = @@symbol_table[symbol]
       if address.nil?
-        address =  (16 + @@num_symbols).to_s
+        address =  (16 + @@num_variable_symbols).to_s
         @@symbol_table[symbol] = address
-        @@num_symbols += 1
+        @@num_variable_symbols += 1
       end
 
       address
     end
 
+    def self.add_label_address(symbol, address)
+      @@symbol_table[symbol] = address.to_s
+    end
+
     private
-    @@num_symbols = 0
+    @@num_variable_symbols = 0
 
     @@symbol_table = {
       'R0' => '0',
