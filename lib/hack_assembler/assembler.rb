@@ -7,7 +7,7 @@ module HackAssembler
 
         clean_line = line.strip
 
-        match = /\(([A-Z_]+)\)/.match(clean_line)
+        match = /\((.*)\)/.match(clean_line)
         if match
           label = match[1]
 
@@ -68,7 +68,7 @@ module HackAssembler
     end
 
     def self.is_label_line?(line)
-      line =~ /\([A-Z_]+\)/
+      line =~ /\(.*\)/
     end
   end
 end
