@@ -21,11 +21,6 @@ module HackAssembler
     def self.process_symbols(source_code, symbol_table)
       processed_code = ''
       source_code.each_line do |line|
-        if is_empty_line?(line) || is_comment_line?(line)
-          processed_code << line
-          next
-        end
-
         clean_line = line.strip
 
         match = /@([A-Za-z][A-Za-z0-9]*)/.match(clean_line)
