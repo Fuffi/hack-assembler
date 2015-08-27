@@ -1,6 +1,24 @@
 require 'test_helper'
 
 class SymbolTableTest < Minitest::Test
+  def test_that_adds_one_symbol
+    address = SymbolTable.get_address('index')
+    assert_equal '16', address
+  end
+
+  def test_that_adds_two_symbols
+    SymbolTable.get_address('index')
+    address = SymbolTable.get_address('count')
+    assert_equal '17', address
+  end
+
+  def test_that_addresses_dont_change
+    SymbolTable.get_address('index')
+    SymbolTable.get_address('count')
+    address = SymbolTable.get_address('index')
+    assert_equal '16', address
+  end
+
   def test_reserved_symbol_r0
     address = SymbolTable.get_address('R0')
     assert_equal '0', address

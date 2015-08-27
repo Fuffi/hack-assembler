@@ -1,10 +1,19 @@
 module HackAssembler
   module SymbolTable
     def self.get_address(symbol)
-      @@symbol_table[symbol]
+      address = @@symbol_table[symbol]
+      if address.nil?
+        address =  (16 + @@num_symbols).to_s
+        @@symbol_table[symbol] = address
+        @@num_symbols += 1
+      end
+
+      address
     end
 
     private
+    @@num_symbols = 0
+
     @@symbol_table = {
       'R0' => '0',
       'R1' => '1',
