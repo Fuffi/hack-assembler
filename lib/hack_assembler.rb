@@ -6,6 +6,7 @@ require_relative 'hack_assembler/destination_translator'
 require_relative 'hack_assembler/jump_translator'
 require_relative 'hack_assembler/c_instruction'
 require_relative 'hack_assembler/assembler'
+require_relative 'hack_assembler/symbol_table'
 
 module HackAssembler
   def self.translate_file(input_file, output_file)
