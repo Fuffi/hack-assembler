@@ -28,11 +28,11 @@ class AssemblerTest < Minitest::Test
   def test_that_scan_labels_adds_labels_to_symbol_table
     @symbol_table = SymbolTable.new
 
-    source_code = "(LOOP)\n" << "@LOOP\n" << "(END)\n" << "@END\n"
+    source_code = "(LOOP)\n" << "@LOOP\n" << "(END_LOOP)\n" << "@END_LOOP\n"
     Assembler.scan_labels(source_code, @symbol_table)
 
     loop_address = @symbol_table.get_address('LOOP')
-    end_address = @symbol_table.get_address('END')
+    end_address = @symbol_table.get_address('END_LOOP')
 
     assert_equal '0', loop_address
     assert_equal '1', end_address
@@ -40,7 +40,7 @@ class AssemblerTest < Minitest::Test
 
   def test_that_it_processes_built_in_symbols
     @symbol_table = SymbolTable.new
-    
+
     source_code = "@R0\n" << "@R15\n"
     processed_code = Assembler.process_symbols(source_code, @symbol_table)
 

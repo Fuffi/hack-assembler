@@ -13,7 +13,11 @@ module HackAssembler
     source_file = File.open(input_file)
     source_code = source_file.read
 
-    machine_code = Assembler.translate(source_code)
+    symbol_table = SymbolTable.new
+
+    Assembler.scan_labels(source_code, symbol_table)
+    processed_source = Assembler.process_symbols(source_code, symbol_table)
+    machine_code = Assembler.translate(processed_source)
 
     File.open(output_file, 'w') { |file| file.write(machine_code); file.close }
 
