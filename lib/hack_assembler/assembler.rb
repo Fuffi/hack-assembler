@@ -7,7 +7,7 @@ module HackAssembler
 
         clean_line = line.strip
 
-        match = /\(([A-Z]+)\)/.match(clean_line)
+        match = /\(([A-Z_]+)\)/.match(clean_line)
         if match
           label = match[1]
 

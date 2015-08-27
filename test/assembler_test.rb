@@ -28,7 +28,7 @@ class AssemblerTest < Minitest::Test
   def test_that_scan_labels_adds_labels_to_symbol_table
     @symbol_table = SymbolTable.new
 
-    source_code = "(LOOP)\n" << "@LOOP\n" << "(END_LOOP)\n" << "@END_LOOP\n"
+    source_code = "(LOOP)\n" << "@LOOP\n" << "  \n" << "(END_LOOP)\n" << "@END_LOOP\n"
     Assembler.scan_labels(source_code, @symbol_table)
 
     loop_address = @symbol_table.get_address('LOOP')
