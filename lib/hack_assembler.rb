@@ -15,7 +15,7 @@ module HackAssembler
 
     symbol_table = SymbolTable.new
 
-    Assembler.scan_labels(source_code, symbol_table)
+    Assembler.scan_and_remove_labels(source_code, symbol_table)
     processed_source = Assembler.process_symbols(source_code, symbol_table)
     machine_code = Assembler.translate(processed_source)
 

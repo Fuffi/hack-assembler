@@ -1,9 +1,13 @@
 module HackAssembler
   module Assembler
-    def self.scan_labels(source_code, symbol_table)
+    def self.scan_and_remove_labels(source_code, symbol_table)
       machine_code_line_number = 0
+      label_less_code = ''
       source_code.each_line do |line|
-        next if is_empty_line?(line) || is_comment_line?(line)
+        if is_empty_line?(line) || is_comment_line?(line)
+          label_less_code << line
+          next
+        end
 
         clean_line = line.strip
 
@@ -12,10 +16,14 @@ module HackAssembler
           label = match[1]
 
           symbol_table.add_label_address(label, machine_code_line_number)
+          label_less_code << "\n"
         else
           machine_code_line_number += 1
+          label_less_code << line
         end
       end
+
+      label_less_code
     end
 
     def self.process_symbols(source_code, symbol_table)
@@ -23,7 +31,7 @@ module HackAssembler
       source_code.each_line do |line|
         clean_line = line.strip
 
-        match = /@([A-Za-z][A-Za-z0-9]*)/.match(clean_line)
+        match = /@(.*)/.match(clean_line)
         if match
           symbol = match[1]
 
@@ -41,7 +49,7 @@ module HackAssembler
       machine_code = ''
 
       source_code.each_line do |line|
-        next if is_empty_line?(line) || is_comment_line?(line) || is_label_line?(line)
+        next if is_empty_line?(line) || is_comment_line?(line)
 
         clean_line = line.strip
 

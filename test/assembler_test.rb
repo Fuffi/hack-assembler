@@ -25,11 +25,11 @@ class AssemblerTest < Minitest::Test
     assert_equal "0000000000000100\n", bytecode
   end
 
-  def test_that_scan_labels_adds_labels_to_symbol_table
+  def test_that_scan_and_remove_labels_adds_labels_to_symbol_table
     symbol_table = SymbolTable.new
 
     source_code = "(LOOP)\n" << "@LOOP\n" << "  \n" << "(END_LOOP)\n" << "@END_LOOP\n"
-    Assembler.scan_labels(source_code, symbol_table)
+    Assembler.scan_and_remove_labels(source_code, symbol_table)
 
     loop_address = symbol_table.get_address('LOOP')
     end_address = symbol_table.get_address('END_LOOP')
@@ -50,15 +50,14 @@ class AssemblerTest < Minitest::Test
   def test_that_it_translates_code_with_symbols_and_labels
     symbol_table = SymbolTable.new
 
-    symbol_table.add_label_address('START_LOOP', 0)
-    symbol_table.add_label_address('END_LOOP', 5)
-
     source_code = "(START_LOOP)\n" << "@START_LOOP\n" << "(END_LOOP)\n" << "@END_LOOP"
 
-    processed_code = Assembler.process_symbols(source_code, symbol_table)
+    label_less_code = Assembler.scan_and_remove_labels(source_code, symbol_table)
+
+    processed_code = Assembler.process_symbols(label_less_code, symbol_table)
 
     bytecode = Assembler.translate(processed_code)
 
-    assert_equal "0000000000010000\n" << "0000000000010001\n", bytecode
+    assert_equal "0000000000000000\n" << "0000000000000001\n", bytecode
   end
 end
