@@ -31,7 +31,7 @@ module HackAssembler
       source_code.each_line do |line|
         clean_line = line.strip
 
-        match = /@(.*)/.match(clean_line)
+        match = /@([^0-9].*)/.match(clean_line)
         if match
           symbol = match[1]
 

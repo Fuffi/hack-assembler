@@ -47,6 +47,15 @@ class AssemblerTest < Minitest::Test
     assert_equal "@0\n" << "@15\n", processed_code
   end
 
+  def test_that_it_does_not_change_symbols
+    symbol_table = SymbolTable.new
+
+    source_code = "@256\n" << "@0\n"
+    processed_code = Assembler.process_symbols(source_code, symbol_table)
+
+    assert_equal "@256\n" << "@0\n", processed_code
+  end
+
   def test_that_it_translates_code_with_symbols_and_labels
     symbol_table = SymbolTable.new
 
