@@ -24,6 +24,13 @@ After installing the Gem you can run this command from your terminal:
 
     hack_assembler <input-file.asm> <output-file.hack>
 
+## TO DOs
+
+* Refactor code and tests
+* Add better error reporting
+* Make sure any valid symbol name is recognized
+
+
 ## Contributing
 
 1. Fork it
