@@ -2,7 +2,7 @@
 
 # Hack Assembler
 
-Converts assembly code for the Hack machine built during the nand2tetris exercises.
+Converts assembly code for the Hack machine built for the "From NAND" to Tetris" course.
 
 ## Installation
 
