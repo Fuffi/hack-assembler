@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/Fuffi/hack-assembler.svg?branch=master)](https://travis-ci.org/Fuffi/hack-assembler)
-
 # Hack Assembler
+
+[![Build Status](https://travis-ci.org/Fuffi/hack-assembler.svg?branch=master)](https://travis-ci.org/Fuffi/hack-assembler)
 
 Converts assembly code for the Hack machine built for the "From NAND" to Tetris" course.
 
